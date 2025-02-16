@@ -1,3 +1,98 @@
+import { useState } from "react";
+import Head from "next/head";
+
+export default function Login() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    alert(`Logging in as ${email}`);
+  };
+
+  return (
+    <>
+      <Head>
+        <title>Login - TechnicalWriters</title>
+      </Head>
+
+      <div className="flex min-h-screen items-center justify-center bg-gray-100 px-4">
+        <div className="w-full max-w-md bg-white p-6 rounded-lg shadow-lg">
+          {/* Logo and Title */}
+          <div className="flex flex-col items-center">
+            <img src="/logo.png" alt="TechnicalWriters Logo" className="w-16 mb-2" />
+            <h1 className="text-2xl font-bold text-orange-500">TechnicalWriters</h1>
+          </div>
+
+          {/* Facebook Login */}
+          <button className="w-full mt-4 bg-blue-600 text-white py-2 rounded-md text-sm hover:bg-blue-700">
+            Log in with Facebook
+          </button>
+
+          <div className="my-4 text-center text-gray-500 text-sm">OR</div>
+
+          {/* Login Form */}
+          <form onSubmit={handleSubmit} className="space-y-4">
+            <input
+              type="email"
+              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-400"
+              placeholder="Enter your email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
+            <input
+              type="password"
+              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-400"
+              placeholder="Enter your password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
+            <button
+              type="submit"
+              className="w-full bg-orange-500 text-white py-2 rounded-md hover:bg-orange-600 transition"
+            >
+              Log In
+            </button>
+          </form>
+
+          {/* Links */}
+          <div className="mt-4 text-center">
+            <a href="#" className="text-sm text-orange-500 hover:underline">
+              Forgot your password?
+            </a>
+            <p className="mt-2 text-sm">
+              Need an account?{" "}
+              <a href="#" className="text-orange-500 hover:underline">
+                Sign up
+              </a>
+            </p>
+          </div>
+
+          {/* Footer */}
+          <p className="mt-6 text-xs text-gray-500 text-center">
+            This site is protected by reCAPTCHA and the Google{" "}
+            <a href="#" className="underline">Privacy Policy</a> and{" "}
+            <a href="#" className="underline">Terms of Service</a> apply.
+          </p>
+
+          {/* Bottom Links */}
+          <div className="mt-4 flex justify-center space-x-4 text-sm text-orange-500">
+            <a href="#" className="hover:underline">Home</a>
+            <a href="#" className="hover:underline">Contacts</a>
+            <a href="#" className="hover:underline">Pricing Policy</a>
+          </div>
+        </div>
+      </div>
+    </>
+  );
+}
+
+
+
+
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
